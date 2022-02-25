@@ -1,0 +1,70 @@
+If I want to make a login option, use a context.
+
+
+////////////// REDUX //////////////
+------------------------
+npm install redux react-redux
+------------------------
+
+**********************************
+/store/index.js (?)
+
+import { createStore } from 'redux';
+
+function counterReducer(state = { counter: 0 }, action){
+    if(action.type === 'increment'){
+        return {
+            counter: state.counter + 1;
+        }
+    }
+
+    if(action.type === 'addAmount'){
+        return {
+            counter: state.counter + action.value;
+        }
+    }
+
+    if(action.type === 'decrement'){
+        return {
+            counter: state.counter - 1;
+        }
+    }
+
+    return state;
+}
+
+const myStore = createStore(counterReducer);
+
+export default myStore;
+**********************************
+src/index.js
+
+import { Provider } from 'react-redux';
+
+import myStore from '../store/counterReducer';
+
+ReactDOM.render(<Provider store={myStore}><App /> </Provider>, document.getElementById('root'));
+**********************************
+components/Counter.js
+
+import { useSelector, useDispatch } from 'react-redux';
+
+function Counter(){
+
+    const counter = useSelector(state => state.counter); // this automatically sets up a subscription
+    const dispatch = useDispatch();
+
+    function addAmountHandler(){
+        dispatch(type: 'addAmount', value: 5); // by convention, 'payload' is used instead of 'value'
+    }
+
+    return(
+        <Fragment>
+            <div>{counter}</div>
+            <button onClick={() => dispatch({type: 'increment'})}>Increment</button>
+            <button onClick={addAmountHandler}>Increment</button>
+        </Fragment>
+    )    
+}
+
+////////////// END REDUX /////////////
