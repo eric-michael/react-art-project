@@ -1,7 +1,4 @@
 import { useState, useContext } from "react";
-import { useSelector, useDispatch } from "react-redux";
-
-import { favoriteActions } from "../store";
 
 import FavoritesContext from "../store/favorites-context";
 
@@ -15,17 +12,6 @@ function Favorites() {
   const [currentSrc, setCurrentSrc] = useState("");
   const [currentTitle, setCurrentTitle] = useState("");
 
-  /* redux */
-  const favoritesFromRedux = useSelector((state) => state.favorites.art);
-  const dispatch = useDispatch();
-
-  //dispatch(favoriteActions.addFavorite('butt'));
-  /* end redux */
-  console.log(favoritesFromRedux);
-
-  /* if(favoritesFromRedux){
-    return <div>{favoritesFromRedux}</div>
-  } */
 
   if (!favoritesCtx.favorites.length) {
     return <div>You do not have any favorites.</div>;
