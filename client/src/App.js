@@ -25,6 +25,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { favoriteActions } from "./store";
 /* End Redux */
 
+/* Custom Hooks */
+import useWindowDimensions from "./hooks/windowDimensions";
+/* End Custom Hooks */
+
 // fontawesome
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
@@ -47,8 +51,9 @@ function App() {
   /* Redux */
   const favoritesFromRedux = useSelector((state) => state.favorites.art);
   const dispatch = useDispatch();
-
   /* End Redux */
+
+  const { height, width } = useWindowDimensions();
 
   if (!connected) {
     return <div>Cannot connect to server</div>;
@@ -57,18 +62,20 @@ function App() {
   return (
     <div>
       <FavoritesContextProvider>
-        <MainNav />
-        <Switch>
-          <Route path="/" exact>
-            <Main favorites={favoritesFromRedux} />
-          </Route>
-          <Route path="/favorites" exact>
-            <Favorites favorites={favoritesFromRedux} />
-          </Route>
-          <Route path="/new" exact>
-            <NewEntry />
-          </Route>
-        </Switch>
+        <div style={{ minHeight: height - 87 }}>
+          <MainNav />
+          <Switch>
+            <Route path="/" exact>
+              <Main favorites={favoritesFromRedux} />
+            </Route>
+            <Route path="/favorites" exact>
+              <Favorites favorites={favoritesFromRedux} />
+            </Route>
+            <Route path="/new" exact>
+              <NewEntry />
+            </Route>
+          </Switch>
+        </div>
         <Footer />
       </FavoritesContextProvider>
     </div>
