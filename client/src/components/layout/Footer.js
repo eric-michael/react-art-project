@@ -7,7 +7,7 @@ function Footer(){
 
     return(
         <div className={classes.wrapper}>
-            <div className={classes.content}>Aesthetic Productions</div>
+            <div className={classes.content}>AP</div>
         </div>
     );
 }
