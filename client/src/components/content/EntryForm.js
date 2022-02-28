@@ -4,6 +4,10 @@ import { useRef } from "react";
 
 import classes from "./EntryForm.module.css";
 
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+
 function EntryForm(props) {
   // These are for capturing input values. Assign them to the 'ref' prop on an input el.
   const urlRef = useRef();
@@ -31,6 +35,59 @@ function EntryForm(props) {
 
     props.onAddArt(data);
   }
+
+  return (
+    <Box
+      component="form"
+      sx={{
+        "& .MuiTextField-root": { m: 1, width: "25ch" },
+        display: "inline-block",
+      }}
+      noValidate
+      autoComplete="off"
+    >
+      <TextField
+        required
+        id="imageURL"
+        label="Wikipedia Image URL"
+        inputRef={urlRef}
+      />
+      <TextField required id="title" label="Title" inputRef={titleRef} />
+      <div>
+        <TextField required id="artist" label="Artist" inputRef={artistRef} />
+        <TextField
+          id="Description"
+          label="Description"
+          multiline
+          rows={6}
+          inputRef={descriptionRef}
+        />
+      </div>
+      <div>
+        <TextField
+          id="artMovement"
+          label="Art Movement"
+          inputRef={movementRef}
+        />
+        <TextField
+          id="cityOfOrigin"
+          label="City of Origin"
+          inputRef={cityRef}
+        />
+      </div>
+      <div>
+        <TextField
+          id="yearCompleted"
+          label="Year Completed"
+          inputRef={yearRef}
+        />
+        <TextField id="medium" label="Medium" inputRef={mediumRef} />
+      </div>
+      <Button sx={{ float: "right" }} onClick={submitHandler}>
+        Add Art
+      </Button>
+    </Box>
+  );
 
   return (
     <form className={classes.entry_form} onSubmit={submitHandler}>
