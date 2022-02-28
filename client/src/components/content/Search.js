@@ -3,6 +3,8 @@ import React, { useRef } from "react";
 import { OutlinedInput, IconButton } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import classes from "./Search.module.css";
+
 /* Redux */
 import { useSelector, useDispatch } from "react-redux";
 import { artActions } from '../../store';
@@ -36,7 +38,7 @@ function Search() {
     });
   }
   return (
-    <div>
+    <div className={classes.search}>
       <OutlinedInput placeholder="Search" inputRef={searchRef} />{" "}
       {/* mui requires inputRef to pass a ref to the input element  */}
       <IconButton onClick={searchHandler}>
