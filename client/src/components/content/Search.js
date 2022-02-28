@@ -17,8 +17,6 @@ function Search() {
   const searchFromRedux = useSelector((state) => state.art.art);
   const dispatch = useDispatch();
 
-  console.log('hello from search')
-
   const searchRef = useRef();
 
   function searchHandler(e) {
@@ -31,9 +29,7 @@ function Search() {
       },
     }).then((response) => {
       response.json().then((data) => {
-        console.log(data.art);
         dispatch(artActions.getArtBySearch(data.art));
-        console.log(searchFromRedux);
       });
     });
   }
