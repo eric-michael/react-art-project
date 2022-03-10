@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Route, Switch } from "react-router";
+import { Route, Switch, Redirect } from "react-router";
 
 /* Styles */
 import "./App.css";
@@ -73,6 +73,9 @@ function App() {
             </Route>
             <Route path="/new" exact>
               <NewEntry />
+            </Route>
+            <Route path="*">
+              <Redirect to="/" />
             </Route>
           </Switch>
         </div>
