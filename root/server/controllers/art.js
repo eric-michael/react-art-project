@@ -13,6 +13,13 @@ exports.getAllArt = (req, res) => {
 };
 
 exports.addArt = (req, res) => {
+  const secret = req.body.secret;
+
+  // If secret key was not posted with the form, don't complete the request.
+  if (secret != process.env.POST_SECRET) {
+    return res.send({ message: "Please post correct secret key." });
+  }
+
   const imageUrl = req.body.url;
   const title = req.body.title;
   const medium = req.body.medium;

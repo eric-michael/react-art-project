@@ -18,6 +18,7 @@ function EntryForm(props) {
   const cityRef = useRef();
   const yearRef = useRef();
   const mediumRef = useRef();
+  const secretRef = useRef();
 
   function submitHandler(e) {
     e.preventDefault();
@@ -31,6 +32,7 @@ function EntryForm(props) {
       city: cityRef.current.value,
       year: yearRef.current.value,
       medium: mediumRef.current.value,
+      secret: secretRef.current.value,
     };
 
     props.onAddArt(data);
@@ -46,6 +48,12 @@ function EntryForm(props) {
       noValidate
       autoComplete="off"
     >
+      <TextField
+        required
+        id="secretKey"
+        label="Secret key for POSTing"
+        inputRef={secretRef}
+      />
       <TextField
         required
         id="imageURL"
