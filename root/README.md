@@ -1,7 +1,7 @@
 Dependencies:
 
 install in /client (Note: some of these come with React):
-"@emotion/react": "^11.7.1", \n
+"@emotion/react": "^11.7.1",
 "@emotion/styled": "^11.6.0", 
 "@fontsource/roboto": "^4.5.1", 
 "@fortawesome/fontawesome-free": "^5.15.4", 
