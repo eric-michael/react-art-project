@@ -2,6 +2,10 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 3001;
 
+// dotenv is a library that adds the contents of your '.env' file to 'process.env'
+const dotenv = require("dotenv");
+dotenv.config();
+
 // This is required to parse json request bodies
 app.use(express.json());
 
