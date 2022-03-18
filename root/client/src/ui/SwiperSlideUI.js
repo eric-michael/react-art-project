@@ -1,5 +1,4 @@
-// Body.js parent
-// Favorites.js parent
+// Parent - SwiperUI.js
 
 import { useState, useContext } from "react";
 import classes from "./SwiperSlideUI.module.css";
@@ -30,6 +29,7 @@ function SwiperSlideUI(props) {
     props.setIsViewing(true);
     props.setCurrentSrc(props.url);
     props.setCurrentTitle(props.title);
+    props.setCurrentArt(props.art);
   }
 
   function addFavoriteStatusHandler() {

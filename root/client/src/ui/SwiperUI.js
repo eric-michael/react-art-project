@@ -1,3 +1,5 @@
+// Parent - Body.js
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper";
 
@@ -39,6 +41,7 @@ function SwiperUI(props) {
                       setIsViewing={props.setIsViewing}
                       setCurrentSrc={props.setCurrentSrc}
                       setCurrentTitle={props.setCurrentTitle}
+                      setCurrentArt={props.setCurrentArt}
                     />
                   </SwiperSlide>
                 );

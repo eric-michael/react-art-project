@@ -8,6 +8,9 @@ import classes from "./Modal.module.css";
 import useWindowDimensions from "../hooks/windowDimensions";
 
 function ModalJSX(props) {
+
+  const title = props.art.title;
+  const artist = props.art.artist;
   // Close the modal
   function closeModal() {
     props.setIsViewing(false);
@@ -45,7 +48,7 @@ function ModalJSX(props) {
         ref={img}
       ></img>
       <div className={classes.infobox} style={{top: height - 87 }}>
-        <div className={classes.infotitle}>Title: {props.title} | </div>
+        <div className={classes.infotitle}>Title: {title} | Artist: {artist}</div>
       </div>
     </div>
   );

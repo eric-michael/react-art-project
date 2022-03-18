@@ -14,6 +14,7 @@ function Body(props) {
   const [isViewing, setIsViewing] = useState(false);
   const [currentSrc, setCurrentSrc] = useState("");
   const [currentTitle, setCurrentTitle] = useState("");
+  const [currentArt, setCurrentArt] = useState(null);
 
   if (props.data_art) {
     return (
@@ -24,13 +25,14 @@ function Body(props) {
           setIsViewing={setIsViewing}
           setCurrentSrc={setCurrentSrc}
           setCurrentTitle={setCurrentTitle}
+          setCurrentArt={setCurrentArt}
         />
         {isViewing && (
           <Modal
             setIsViewing={setIsViewing}
             url={currentSrc}
             title={currentTitle}
-            art={props.data_art}
+            art={currentArt}
           />
         )}
       </Fragment>
