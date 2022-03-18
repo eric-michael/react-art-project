@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import EntryForm from "../components/content/EntryForm";
 
 function NewEntry() {
-  const [artAdded, setArtAdded] = useState(false);
+  const [response, setResponse] = useState('');
 
   function addArtHandler(newArtData) {
     console.log("art added", newArtData);
@@ -18,12 +18,12 @@ function NewEntry() {
       .then((response) => response.json())
       .then((json) => {
         console.log(json);
-        setArtAdded(true);
+        setResponse(json.message);
       });
   }
   return (
   <React.Fragment>
-    {artAdded ? <p>Art added</p> : <></>}
+    {response ? <p>{response}</p> : <></>}
     <EntryForm onAddArt={addArtHandler} />
   </React.Fragment>
   );
