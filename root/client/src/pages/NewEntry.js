@@ -6,8 +6,6 @@ function NewEntry() {
   const [response, setResponse] = useState('');
 
   function addArtHandler(newArtData) {
-    console.log("art added", newArtData);
-    console.log("stringified", JSON.stringify(newArtData));
     fetch("/addart", {
       method: "POST",
       body: JSON.stringify(newArtData),
@@ -17,7 +15,6 @@ function NewEntry() {
     })
       .then((response) => response.json())
       .then((json) => {
-        console.log(json);
         setResponse(json.message);
       });
   }
