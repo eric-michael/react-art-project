@@ -11,6 +11,7 @@ function Favorites() {
   const [isViewing, setIsViewing] = useState(false);
   const [currentSrc, setCurrentSrc] = useState("");
   const [currentTitle, setCurrentTitle] = useState("");
+  const [currentArt, setCurrentArt] = useState(null);
 
 
   if (!favoritesCtx.favorites.length) {
@@ -19,7 +20,7 @@ function Favorites() {
 
   return (
     <div>
-      <div>Favorites</div>
+      <h1>Favorites</h1>
       {favoritesCtx.favorites.map((art) => {
         return (
           <Card
@@ -32,6 +33,7 @@ function Favorites() {
             setIsViewing={setIsViewing}
             setCurrentSrc={setCurrentSrc}
             setCurrentTitle={setCurrentTitle}
+            setCurrentArt={setCurrentArt}
           />
         );
       })}
@@ -40,6 +42,7 @@ function Favorites() {
           setIsViewing={setIsViewing}
           url={currentSrc}
           title={currentTitle}
+          art={currentArt}
         />
       )}
     </div>

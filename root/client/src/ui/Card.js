@@ -30,6 +30,7 @@ function Card(props) {
     props.setIsViewing(true);
     props.setCurrentSrc(props.url);
     props.setCurrentTitle(props.title);
+    props.setCurrentArt(props.art);
   }
 
   function addFavoriteStatusHandler() {
