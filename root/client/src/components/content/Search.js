@@ -21,7 +21,7 @@ function Search() {
 
   function searchHandler(e) {
     const query = { query: searchRef.current.value };
-    fetch("/searchart", {
+    fetch("/api/searchart", {
       method: "POST",
       body: JSON.stringify(query),
       headers: {

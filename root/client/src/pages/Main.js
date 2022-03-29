@@ -27,7 +27,7 @@ function Main(props) {
 
   useEffect(
     () => {
-      fetch("/art").then((res) => {
+      fetch("/api/art").then((res) => {
         res.json().then((data) => {
           setIsLoading(false);
           //dispatch({type: 'allArt', payload: data.art});

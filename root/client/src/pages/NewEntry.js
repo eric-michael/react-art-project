@@ -6,7 +6,7 @@ function NewEntry() {
   const [response, setResponse] = useState('');
 
   function addArtHandler(newArtData) {
-    fetch("/addart", {
+    fetch("/api/addart", {
       method: "POST",
       body: JSON.stringify(newArtData),
       headers: {

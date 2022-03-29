@@ -21,12 +21,11 @@ mongoConnect.mongoConnect(() => {
 // create a GET route
 app.get("/api", routes.test);
 
-//Send one peice of art.
-app.get("/art", routes.getAllArt);
+app.get("/api/art", routes.getAllArt);
 
-app.post("/addart", routes.addArt);
+app.post("/api/addart", routes.addArt);
 
-app.post("/searchart", routes.searchArt);
+app.post("/api/searchart", routes.searchArt);
 
 /*  https://expressjs.com/en/guide/routing.html
 Route parameters
