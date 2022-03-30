@@ -7,6 +7,7 @@ import classes from "./EntryForm.module.css";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import FormControl from "@mui/material/FormControl";
 
 function EntryForm(props) {
   // These are for capturing input values. Assign them to the 'ref' prop on an input el.
@@ -60,16 +61,9 @@ function EntryForm(props) {
         label="Wikipedia Image URL"
         inputRef={urlRef}
       />
-      <TextField required id="title" label="Title" inputRef={titleRef} />
       <div>
+        <TextField required id="title" label="Title" inputRef={titleRef} />
         <TextField required id="artist" label="Artist" inputRef={artistRef} />
-        <TextField
-          id="Description"
-          label="Description"
-          multiline
-          rows={6}
-          inputRef={descriptionRef}
-        />
       </div>
       <div>
         <TextField
@@ -90,6 +84,16 @@ function EntryForm(props) {
           inputRef={yearRef}
         />
         <TextField id="medium" label="Medium" inputRef={mediumRef} />
+      </div>
+      <div>
+        <TextField
+          id="Description"
+          label="Description"
+          sx={{ width: '50ch' }}
+          multiline
+          rows={6}
+          inputRef={descriptionRef}
+        />
       </div>
       <Button sx={{ float: "right" }} onClick={submitHandler}>
         Add Art
