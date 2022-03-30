@@ -15,7 +15,7 @@ function Favorites() {
 
 
   if (!favoritesCtx.favorites.length) {
-    return <div>You do not have any favorites.</div>;
+    return <div>You do not have any favorites. Hover over an image and click on the Star icon to add an image to your favorites.</div>;
   }
 
   return (
