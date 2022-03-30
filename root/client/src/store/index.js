@@ -32,15 +32,12 @@ const artSlice = createSlice({
     // Get all art is sorted by artist as a default.
     // Maybe this should be done on the server. Also this runs every time the page loads?
     getAllArt(state, action) {
-      console.log('get all', action.payload)
       const sorted_by_artist = sort_by_artist(action.payload);
       state.art = sorted_by_artist;
     },
     getArtBySearch(state, action) {
-      console.log('search', action.payload);
       const art_by_search = sort_by_artist(action.payload);
       state.art = art_by_search;
-      console.log(state.art);
     },
   },
 });

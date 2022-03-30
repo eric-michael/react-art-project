@@ -35,7 +35,6 @@ class Art {
 
   static searchArt(query) {
     const db = getDb();
-    console.log(query);
     return db.collection("art").find({
       $or: [
         { "title":  new RegExp('.*' + query + '.*', 'i') },
@@ -49,8 +48,6 @@ class Art {
   }
 
   addNewArt() {
-    console.log("addNewArt");
-    console.log(this);
     const db = getDb();
     return db
       .collection("art")

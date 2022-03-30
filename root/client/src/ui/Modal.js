@@ -8,7 +8,6 @@ import classes from "./Modal.module.css";
 import useWindowDimensions from "../hooks/windowDimensions";
 
 function ModalJSX(props) {
-
   const title = props.art.title;
   const artist = props.art.artist;
   // Close the modal
@@ -22,21 +21,14 @@ function ModalJSX(props) {
   const { height, width } = useWindowDimensions();
 
   useEffect(() => {
-    console.log("img from modal", img);
-
-    console.log("client height: ", img.current.clientHeight);
     let height = img.current.clientHeight;
-    console.log("client width: ", img.current.clientWidth);
     let width = img.current.clientWidth;
     if (height > width) {
       setIsPortrait(true);
     } else {
       setIsPortrait(false);
     }
-    console.log(isPortrait);
   }, [isPortrait]);
-
-  console.log(props.art);
 
   return (
     <div className={classes.darkBG} onClick={closeModal}>
@@ -47,8 +39,10 @@ function ModalJSX(props) {
         title={props.title}
         ref={img}
       ></img>
-      <div className={classes.infobox} style={{top: height - 87 }}>
-        <div className={classes.infotitle}>Title: {title} | Artist: {artist}</div>
+      <div className={classes.infobox} style={{ top: height - 87 }}>
+        <div className={classes.infotitle}>
+          Title: {title} | Artist: {artist}
+        </div>
       </div>
     </div>
   );
