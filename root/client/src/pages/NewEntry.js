@@ -21,6 +21,7 @@ function NewEntry() {
   return (
   <React.Fragment>
     {response ? <p>{response}</p> : <></>}
+    <div>The secret key is required for artwork to be added. Please ask the developer if you would like to add art.</div>
     <EntryForm onAddArt={addArtHandler} />
   </React.Fragment>
   );
