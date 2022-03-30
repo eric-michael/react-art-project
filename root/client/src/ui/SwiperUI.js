@@ -10,6 +10,8 @@ import "swiper/swiper.min.css";
 import "swiper/swiper-bundle.min.css";
 import React from "react";
 
+import classes from "./SwiperUI.module.css";
+
 function SwiperUI(props) {
   SwiperCore.use([Navigation]);
 
@@ -20,7 +22,7 @@ function SwiperUI(props) {
       {Object.keys(props.art).map((artist) => {
         return (
           <React.Fragment>
-            <h1>{artist}</h1>
+            <h1 className={classes.title}>{artist}</h1>
             <Swiper
               key={artist}
               modules={[Navigation]}
