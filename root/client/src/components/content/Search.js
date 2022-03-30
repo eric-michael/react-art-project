@@ -1,13 +1,13 @@
 import React, { useRef } from "react";
 
-import { OutlinedInput, IconButton } from "@mui/material";
+import { OutlinedInput, IconButton, InputAdornment } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import classes from "./Search.module.css";
 
 /* Redux */
 import { useSelector, useDispatch } from "react-redux";
-import { artActions } from '../../store';
+import { artActions } from "../../store";
 /* End Redux */
 
 function Search() {
@@ -20,6 +20,9 @@ function Search() {
   const searchRef = useRef();
 
   function searchHandler(e) {
+    if(e.keyCode != 13){
+      return;
+    }
     const query = { query: searchRef.current.value };
     fetch("/api/searchart", {
       method: "POST",
@@ -35,11 +38,19 @@ function Search() {
   }
   return (
     <div className={classes.search}>
-      <OutlinedInput placeholder="Search" inputRef={searchRef} />{" "}
+      <OutlinedInput
+        placeholder="Search"
+        inputRef={searchRef}
+        onKeyDown={searchHandler}
+        endAdornment={
+          <InputAdornment position="end">
+            <IconButton onClick={searchHandler}>
+              <FontAwesomeIcon icon={["fas", "search"]} />
+            </IconButton>
+          </InputAdornment>
+        }
+      />
       {/* mui requires inputRef to pass a ref to the input element  */}
-      <IconButton onClick={searchHandler}>
-        <FontAwesomeIcon icon={["fas", "search"]} />
-      </IconButton>
     </div>
   );
 }
